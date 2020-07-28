@@ -28,6 +28,7 @@ class ViewController: UITableViewController {
             }
         }
         
+        pictures.sort()
         print(pictures)
     }
 
