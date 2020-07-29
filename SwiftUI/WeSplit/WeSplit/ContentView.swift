@@ -10,19 +10,29 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var checkAmount = ""
-    @State private var numberOfPeople = 2
+    @State private var numberOfPeople = "2"
     @State private var tipPercentage = 2
+    
+    let currency = Locale.current.currencySymbol ?? "$"
     
     let tipPercentages = [10, 15, 20, 25, 0]
     
-    var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+    var peopleCount: Int {
+        return Int(numberOfPeople) ?? 0 + 2
+    }
+    
+    var totalAmount: Double {
         let tipSelection = Double(tipPercentages[tipPercentage])
         let orderAmount = Double(checkAmount) ?? 0
         
         let tipValue = orderAmount / 100 * tipSelection
-        let grandTotal = orderAmount + tipValue
-        let amountPerPerson = grandTotal / peopleCount
+        let total = orderAmount + tipValue
+        
+        return total
+    }
+    
+    var totalPerPerson: Double {
+        let amountPerPerson = totalAmount / Double(peopleCount)
         
         return amountPerPerson
     }
@@ -34,11 +44,8 @@ struct ContentView: View {
                     TextField("Amount", text: $checkAmount)
                         .keyboardType(.decimalPad)
                     
-                    Picker("Number of people", selection: $numberOfPeople) {
-                        ForEach (2 ..< 100) {
-                            Text("\($0) people")
-                        }
-                    }
+                    TextField("Number of people", text: $numberOfPeople)
+                        .keyboardType(.numberPad)
                 }
                 
                 Section(header: Text("How much tip do you want to leave?")) {
@@ -50,8 +57,12 @@ struct ContentView: View {
                     .pickerStyle(SegmentedPickerStyle())
                 }
                 
-                Section {
-                    Text("$\(totalPerPerson, specifier: "%.2f")")
+                Section(header: Text("Amount per person")) {
+                    Text("\(currency)\(totalPerPerson, specifier: "%.2f")")
+                }
+                
+                Section(header: Text("Total amount")) {
+                    Text("\(currency)\(totalAmount, specifier: "%.2f")")
                 }
             }
             .navigationBarTitle("WeSplit")
