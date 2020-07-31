@@ -56,13 +56,14 @@ class ViewController: UIViewController {
             score += 1
         } else {
             title = "Wrong"
+            message = "That’s the flag of \(countries[sender.tag].uppercased()) \n"
             score -= 1
         }
         
         if questionsAsked <= 10 {
-            message = "Your score is \(score)"
+            message += "Your score is \(score)"
         } else {
-            message = "Final score is \(score)"
+            message += "Final score is \(score)"
             continueGame = "Restart"
             score = 0
             questionsAsked = 1
