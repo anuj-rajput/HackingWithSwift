@@ -9,15 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    let motto1 = Text("We learn to serve")
+    let motto2 = Text("We shall overcome")
+    var motto3: some View { Text("This is done") }
+    
     var body: some View {
         VStack {
-            Text("Gryffindor")
-                .font(.largeTitle)
-            Text("Hufflepuff")
-            Text("Ravenclaw")
-            Text("Slytherin")
+            motto1
+                .foregroundColor(Color.red)
+            motto2
+                .foregroundColor(Color.blue)
+            motto3
         }
-        .font(.title)
     }
 }
 
