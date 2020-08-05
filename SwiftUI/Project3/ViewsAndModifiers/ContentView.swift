@@ -11,6 +11,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         Text("Hello, World!")
+            .padding()
+            .background(Color.yellow)
+            .padding()
+            .background(Color.red)
+            .padding()
+            .background(Color.orange)
+            .padding()
+            .background(Color.pink)
+            .padding()
+        
     }
 }
 
