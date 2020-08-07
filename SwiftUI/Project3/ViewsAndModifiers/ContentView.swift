@@ -32,12 +32,32 @@ struct GridStack<Content: View> : View {
     }
 }
 
+struct ProminentTitle: ViewModifier {
+    var text: String
+    
+    func body(content: Content) -> some View {
+        VStack {
+            Text(text)
+                .font(.largeTitle)
+                .foregroundColor(.blue)
+            content
+        }
+    }
+}
+
+extension View {
+    func withTitle(_ text: String) -> some View {
+        self.modifier(ProminentTitle(text: text))
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         GridStack(rows: 4, columns: 4) { row, col in
             Image(systemName: "\(row * 4 + col).circle")
             Text("R\(row) C\(col)")
         }
+        .withTitle("Dis gud stuff")
     }
 }
 
