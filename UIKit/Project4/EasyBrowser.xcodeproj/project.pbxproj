@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2883E34F24E1C0510043C085 /* WebsiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883E34E24E1C0510043C085 /* WebsiteListViewController.swift */; };
 		28A3718324DD7CD6000A0670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3718224DD7CD6000A0670 /* AppDelegate.swift */; };
 		28A3718524DD7CD6000A0670 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3718424DD7CD6000A0670 /* SceneDelegate.swift */; };
 		28A3718724DD7CD6000A0670 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3718624DD7CD6000A0670 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2883E34E24E1C0510043C085 /* WebsiteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteListViewController.swift; sourceTree = "<group>"; };
 		28A3717F24DD7CD6000A0670 /* EasyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28A3718224DD7CD6000A0670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28A3718424DD7CD6000A0670 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				28A3718224DD7CD6000A0670 /* AppDelegate.swift */,
 				28A3718424DD7CD6000A0670 /* SceneDelegate.swift */,
 				28A3718624DD7CD6000A0670 /* ViewController.swift */,
+				2883E34E24E1C0510043C085 /* WebsiteListViewController.swift */,
 				28A3718824DD7CD6000A0670 /* Main.storyboard */,
 				28A3718B24DD7CD8000A0670 /* Assets.xcassets */,
 				28A3718D24DD7CD8000A0670 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2883E34F24E1C0510043C085 /* WebsiteListViewController.swift in Sources */,
 				28A3718724DD7CD6000A0670 /* ViewController.swift in Sources */,
 				28A3718324DD7CD6000A0670 /* AppDelegate.swift in Sources */,
 				28A3718524DD7CD6000A0670 /* SceneDelegate.swift in Sources */,
