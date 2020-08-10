@@ -75,6 +75,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
                     return
                 }
             }
+            
+            let blocked = UIAlertController(title: "Blocked", message: "\(host) not allowed", preferredStyle: .alert)
+            blocked.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(blocked, animated: true)
         }
         
         decisionHandler(.cancel)
