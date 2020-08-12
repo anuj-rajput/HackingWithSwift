@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum StringError: Error {
+    case notRecognised
+    case alreadyUsed
+    case notPossible
+}
+
 class ViewController: UITableViewController {
     var allWords = [String]()
     var usedWords = [String]()
@@ -61,10 +67,7 @@ class ViewController: UITableViewController {
     
     func submit(_ answer: String) {
         let lowerAnswer = answer.lowercased()
-        
-        let errorTitle: String
-        let errorMessage: String
-        
+                
         if isPossible(word: lowerAnswer) {
             if isOriginal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
@@ -75,21 +78,15 @@ class ViewController: UITableViewController {
                     
                     return
                 } else {
-                    errorTitle = "Word not recognised"
-                    errorMessage = "You can't just make them up, you know!"
+                    showErrorMessage(.notRecognised)
                 }
             } else {
-                errorTitle = "Word already used"
-                errorMessage = "Be more original!"
+                showErrorMessage(.alreadyUsed)
             }
         } else {
-            errorTitle = "Word not possible"
-            errorMessage = "You can't spell that word from \(title!.lowercased())."
+            showErrorMessage(.notPossible)
         }
         
-        let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
     }
     
     func isPossible(word: String) -> Bool {
@@ -117,6 +114,29 @@ class ViewController: UITableViewController {
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
         return misspelledRange.location == NSNotFound && range.length >= 3
+    }
+    
+    func showErrorMessage(_ error: StringError) {
+        let errorTitle: String
+        let errorMessage: String
+
+        switch error {
+        case .notRecognised:
+            errorTitle = "Word not recognised"
+            errorMessage = "You can't just make them up, you know!"
+
+        case .alreadyUsed:
+            errorTitle = "Word already used"
+            errorMessage = "Be more original!"
+            
+        case .notPossible:
+            errorTitle = "Word not possible"
+            errorMessage = "You can't spell that word from \(title!.lowercased())."
+        }
+        
+        let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
 }
 
