@@ -94,6 +94,7 @@ class ViewController: UITableViewController {
     
     func isPossible(word: String) -> Bool {
         guard var tempWord = title?.lowercased() else { return false }
+        guard word != tempWord else { return false }
         
         for letter in word {
             if let position = tempWord.firstIndex(of: letter) {
@@ -115,7 +116,7 @@ class ViewController: UITableViewController {
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
-        return misspelledRange.location == NSNotFound
+        return misspelledRange.location == NSNotFound && range.length >= 3
     }
 }
 
