@@ -91,6 +91,8 @@ struct ContentView: View {
     }
 
     func isPossible(word: String) -> Bool {
+        guard word != rootWord else { return false }
+        
         var tempWord = rootWord
 
         for letter in word {
@@ -105,6 +107,8 @@ struct ContentView: View {
     }
 
     func isReal(word: String) -> Bool {
+        guard word.count >= 3 else { return false }
+        
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
