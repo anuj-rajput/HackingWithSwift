@@ -35,6 +35,11 @@ struct ContentView: View {
             .alert(isPresented: $showingError) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
+            .navigationBarItems(leading:
+                Button("Restart") {
+                    self.startGame()
+                }
+            )
         }
     }
 
@@ -67,6 +72,8 @@ struct ContentView: View {
     }
 
     func startGame() {
+        usedWords.removeAll(keepingCapacity: false)
+        
         // 1. Find the URL for start.txt in our app bundle
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             // 2. Load start.txt into a string
