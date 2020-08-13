@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var usedWords = [String]()
     @State private var rootWord = ""
     @State private var newWord = ""
+    @State private var score = 0
 
     @State private var errorTitle = ""
     @State private var errorMessage = ""
@@ -29,6 +30,11 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle")
                     Text($0)
                 }
+                
+                Text("Your score:")
+                Text("\(score)")
+                    .font(.largeTitle)
+                
             }
             .navigationBarTitle(rootWord)
             .onAppear(perform: startGame)
@@ -68,11 +74,14 @@ struct ContentView: View {
         }
 
         usedWords.insert(answer, at: 0)
+        addScore(for: answer)
         newWord = ""
     }
 
     func startGame() {
         usedWords.removeAll(keepingCapacity: false)
+        score = 0
+        newWord = ""
         
         // 1. Find the URL for start.txt in our app bundle
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
@@ -127,6 +136,16 @@ struct ContentView: View {
         errorTitle = title
         errorMessage = message
         showingError = true
+    }
+    
+    func addScore(for word: String) {
+        let count = word.utf16.count
+        
+        if usedWords.count != 0 && usedWords.count % 5 == 0 {
+            score += count + 50
+        } else {
+            score += count
+        }
     }
 }
 
