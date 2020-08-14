@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2869161724E6C309005CE6BF /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869161624E6C309005CE6BF /* Petition.swift */; };
+		2869161924E6C369005CE6BF /* Petitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869161824E6C369005CE6BF /* Petitions.swift */; };
 		2881DDED24E685CD0004A9F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2881DDEC24E685CD0004A9F7 /* AppDelegate.swift */; };
 		2881DDEF24E685CD0004A9F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2881DDEE24E685CD0004A9F7 /* SceneDelegate.swift */; };
 		2881DDF124E685CD0004A9F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2881DDF024E685CD0004A9F7 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2869161624E6C309005CE6BF /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
+		2869161824E6C369005CE6BF /* Petitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petitions.swift; sourceTree = "<group>"; };
 		2881DDE924E685CD0004A9F7 /* WhitehousePetitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhitehousePetitions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2881DDEC24E685CD0004A9F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2881DDEE24E685CD0004A9F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				2881DDEC24E685CD0004A9F7 /* AppDelegate.swift */,
 				2881DDEE24E685CD0004A9F7 /* SceneDelegate.swift */,
 				2881DDF024E685CD0004A9F7 /* ViewController.swift */,
+				2869161624E6C309005CE6BF /* Petition.swift */,
+				2869161824E6C369005CE6BF /* Petitions.swift */,
 				2881DDF224E685CD0004A9F7 /* Main.storyboard */,
 				2881DDF524E685CE0004A9F7 /* Assets.xcassets */,
 				2881DDF724E685CE0004A9F7 /* LaunchScreen.storyboard */,
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2881DDF124E685CD0004A9F7 /* ViewController.swift in Sources */,
+				2869161724E6C309005CE6BF /* Petition.swift in Sources */,
 				2881DDED24E685CD0004A9F7 /* AppDelegate.swift in Sources */,
 				2881DDEF24E685CD0004A9F7 /* SceneDelegate.swift in Sources */,
+				2869161924E6C369005CE6BF /* Petitions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
