@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         Button("Tap Me") {
-            withAnimation {
+            withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
                 self.animationAmount += 360
             }
         }
@@ -21,7 +21,7 @@ struct ContentView: View {
         .background(Color.red)
         .foregroundColor(.white)
         .clipShape(Circle())
-        .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 1, z: 0))
+        .rotation3DEffect(.degrees(animationAmount), axis: (x: 1, y: 1, z: 0))
     }
 }
 
