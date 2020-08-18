@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         cluesLabel.font = .systemFont(ofSize: 24)
         cluesLabel.text = "CLUES"
         cluesLabel.numberOfLines = 0
+        cluesLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         view.addSubview(cluesLabel)
         
         answersLabel = UILabel()
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
         answersLabel.font = .systemFont(ofSize: 24)
         answersLabel.text = "ANSWERS"
         answersLabel.numberOfLines = 0
+        answersLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         view.addSubview(answersLabel)
         
         currentAnswer = UITextField()
@@ -50,12 +52,18 @@ class ViewController: UIViewController {
         let submit = UIButton()
         submit.translatesAutoresizingMaskIntoConstraints = false
         submit.setTitle("SUBMIT", for: .normal)
+        submit.setTitleColor(.systemBlue, for: .normal)
         view.addSubview(submit)
         
         let clear = UIButton()
         clear.translatesAutoresizingMaskIntoConstraints = false
         clear.setTitle("CLEAR", for: .normal)
+        clear.setTitleColor(.systemBlue, for: .normal)
         view.addSubview(clear)
+        
+        let buttonsView = UIView()
+        buttonsView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
             scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -98,10 +106,17 @@ class ViewController: UIViewController {
             clear.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor, constant: 100),
             clear.centerYAnchor.constraint(equalTo: submit.centerYAnchor),
             clear.heightAnchor.constraint(equalToConstant: 44),
+            
+            buttonsView.widthAnchor.constraint(equalToConstant: 750),
+            buttonsView.heightAnchor.constraint(equalToConstant: 320),
+            buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonsView.topAnchor.constraint(equalTo: submit.bottomAnchor, constant: 20),
+            buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
         ])
         
         cluesLabel.backgroundColor = .red
         answersLabel.backgroundColor = .blue
+        buttonsView.backgroundColor = .green
     }
     
     override func viewDidLoad() {
