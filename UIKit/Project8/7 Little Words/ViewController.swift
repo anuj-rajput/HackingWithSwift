@@ -22,8 +22,18 @@ class ViewController: UIViewController {
     var solutions = [String]()
     
     var score = 0 {
+        willSet {
+            scoreLabel.text = "Score: "
+        }
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            UIView.transition(
+                with: scoreLabel,
+                duration: 0.2,
+                options: .transitionFlipFromTop,
+                animations: { [weak self] in
+                    self?.scoreLabel.text! += "\(self!.score)"
+                },
+                completion: nil)
         }
     }
     
