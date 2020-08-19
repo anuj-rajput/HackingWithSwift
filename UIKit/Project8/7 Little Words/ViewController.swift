@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var activatedButtons = [UIButton]()
     var solutions = [String]()
     
+    var nextLevel = 0
     var score = 0 {
         willSet {
             scoreLabel.text = "Score: "
@@ -196,18 +197,32 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
+            nextLevel += 1
             
-            if score % 7 == 0 {
+            if nextLevel % 7 == 0  {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go", style: .default, handler: { _ in
                     self.levelUp()
                 }))
                 present(ac, animated: true)
             }
+        }  else {
+            let ac = UIAlertController(title: "Wrooong", message: "Man u better get good!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok,sorry!", style: .cancel, handler: clearTappedWrongAnswer))
+            present(ac, animated: true)
         }
     }
     
     @objc func clearTapped(_ sender: UIButton) {
+        clearGame()
+    }
+    
+    func clearTappedWrongAnswer(action: UIAlertAction){
+        clearGame()
+        score -= 1
+    }
+
+    func clearGame() {
         currentAnswer.text = ""
         
         for button in activatedButtons {
@@ -216,7 +231,7 @@ class ViewController: UIViewController {
         
         activatedButtons.removeAll()
     }
-
+    
     func loadLevel() {
         var clueString = ""
         var solutionString = ""
