@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct ExpenseItem {
+struct ExpenseItem: Identifiable {
+    var id = UUID()
     var name: String
     var type: String
     var amount: Int
@@ -24,7 +25,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach (expenses.items, id: \.name) { item in
+                ForEach (expenses.items) { item in
                     Text(item.name)
                 }
                 .onDelete(perform: removeItems)
