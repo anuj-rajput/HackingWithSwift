@@ -17,6 +17,8 @@ struct AddView: View {
     @State private var type = "Personal"
     @State private var amount = ""
     
+    @State private var isPresented = false
+    
     static let types = ["Business", "Personal"]
     
     var body: some View {
@@ -39,8 +41,14 @@ struct AddView: View {
                     let item = ExpenseItem(name: self.name, type: self.type, amount: actualAmount)
                     self.expenses.items.append(item)
                     self.presentationMode.wrappedValue.dismiss()
+                } else {
+                    self.isPresented = true
                 }
-            })
+            }
+            .alert(isPresented: $isPresented) {
+                Alert(title: Text("Invalid Amount"), message: Text("The amount you entered is invalid"), dismissButton: .default(Text("Okay")))
+                }
+            )
         }
     }
 }
