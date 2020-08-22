@@ -53,9 +53,7 @@ struct ContentView: View {
                                 .font(.headline)
                             Text(item.type)
                         }
-                        
-                        Spacer()
-                        Text("$\(item.amount)")
+                        .withExpense(item.amount)
                     }
                 }
                 .onDelete(perform: removeItems)
@@ -78,6 +76,44 @@ struct ContentView: View {
     
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
+    }
+}
+
+struct ExpenseModifier: ViewModifier {
+    var expense: Int
+    
+    func body(content: Content) -> some View {
+        if expense < 10 {
+            return
+                HStack {
+                    content
+                    Spacer()
+                    Text("$\(expense)")
+            }
+        } else if expense < 100 {
+            return
+                HStack {
+                    content
+                    Spacer()
+                    Text("$\(expense)")
+                        .bold()
+            }
+        } else {
+            return
+                HStack {
+                    content
+                    Spacer()
+                    Text("$\(expense)")
+                        .bold()
+                        .foregroundColor(.red)
+            }
+        }
+    }
+}
+
+extension View {
+    func withExpense(_ expense: Int) -> some View {
+        self.modifier(ExpenseModifier(expense: expense))
     }
 }
 
