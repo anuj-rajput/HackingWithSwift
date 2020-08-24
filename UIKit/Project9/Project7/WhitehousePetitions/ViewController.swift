@@ -62,13 +62,20 @@ class ViewController: UITableViewController {
     }
     
     func filterPetitions(for term: String) {
-        filteredPetitions.removeAll()
-        for petition in petitions {
-            if petition.title.lowercased().contains(term.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) || petition.body.lowercased().contains(term.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) {
-                filteredPetitions.append(petition)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.filteredPetitions.removeAll()
+            if let petitions = self?.petitions {
+                for petition in petitions {
+                    if petition.title.lowercased().contains(term.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) || petition.body.lowercased().contains(term.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) {
+                        self?.filteredPetitions.append(petition)
+                    }
+                }
+            }
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
             }
         }
-        tableView.reloadData()
     }
     
     func parse(json: Data) {
