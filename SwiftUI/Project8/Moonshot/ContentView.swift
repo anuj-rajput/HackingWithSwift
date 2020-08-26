@@ -8,15 +8,29 @@
 
 import SwiftUI
 
+struct CustomText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+    }
+    
+    init(_ text: String) {
+        self.text = text
+        print("Creating a new \(self)")
+    }
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            GeometryReader { geo in
-                Image("swift")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: geo.size.width , height: 400)
+        ScrollView(.vertical) {
+            VStack(spacing: 10) {
+                ForEach(0 ..< 100) {
+                    CustomText("Item \($0)")
+                        .font(.title)
+                }
             }
+            .frame(maxWidth: .infinity)
         }
     }
 }
