@@ -51,6 +51,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28085D2924F6E18D00D738B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2859966E24F3B49A0000E613 /* ContentView.swift */,
+				28085D2524F6BC8F00D738B0 /* MissionView.swift */,
+				28085D2724F6DD4C00D738B0 /* AstronautView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		28085D2A24F6E19D00D738B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2859967024F3B49D0000E613 /* Assets.xcassets */,
+				28085D1C24F67F8000D738B0 /* astronauts.json */,
+				28085D1B24F67F7F00D738B0 /* missions.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		28085D2B24F6E1AF00D738B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				28085D1F24F6840000D738B0 /* Astronaut.swift */,
+				28085D2324F69E5B00D738B0 /* Mission.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		28085D2D24F6E1C100D738B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				28085D2124F68FA300D738B0 /* Bundle-Decodable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		28085D2E24F6E1D100D738B0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2859967824F3B49D0000E613 /* Info.plist */,
+				2859967524F3B49D0000E613 /* LaunchScreen.storyboard */,
+				2859966A24F3B49A0000E613 /* AppDelegate.swift */,
+				2859966C24F3B49A0000E613 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		2859965E24F3B49A0000E613 = {
 			isa = PBXGroup;
 			children = (
@@ -70,19 +118,11 @@
 		2859966924F3B49A0000E613 /* Moonshot */ = {
 			isa = PBXGroup;
 			children = (
-				2859966A24F3B49A0000E613 /* AppDelegate.swift */,
-				2859966C24F3B49A0000E613 /* SceneDelegate.swift */,
-				2859966E24F3B49A0000E613 /* ContentView.swift */,
-				28085D2724F6DD4C00D738B0 /* AstronautView.swift */,
-				28085D2524F6BC8F00D738B0 /* MissionView.swift */,
-				2859967024F3B49D0000E613 /* Assets.xcassets */,
-				2859967524F3B49D0000E613 /* LaunchScreen.storyboard */,
-				2859967824F3B49D0000E613 /* Info.plist */,
-				28085D1C24F67F8000D738B0 /* astronauts.json */,
-				28085D1F24F6840000D738B0 /* Astronaut.swift */,
-				28085D2124F68FA300D738B0 /* Bundle-Decodable.swift */,
-				28085D1B24F67F7F00D738B0 /* missions.json */,
-				28085D2324F69E5B00D738B0 /* Mission.swift */,
+				28085D2E24F6E1D100D738B0 /* Application */,
+				28085D2924F6E18D00D738B0 /* Views */,
+				28085D2B24F6E1AF00D738B0 /* Models */,
+				28085D2D24F6E1C100D738B0 /* Extensions */,
+				28085D2A24F6E19D00D738B0 /* Resources */,
 				2859967224F3B49D0000E613 /* Preview Content */,
 			);
 			path = Moonshot;
@@ -316,7 +356,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Moonshot/Preview Content\"";
 				DEVELOPMENT_TEAM = 6P96AE4Y52;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Moonshot/Info.plist;
+				INFOPLIST_FILE = Moonshot/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,7 +376,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Moonshot/Preview Content\"";
 				DEVELOPMENT_TEAM = 6P96AE4Y52;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Moonshot/Info.plist;
+				INFOPLIST_FILE = Moonshot/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
