@@ -14,7 +14,7 @@ extension Bundle {
             fatalError("Failed to locate \(file) in bundle.")
         }
         
-        guard let data = try? Data.init(contentsOf: url) else {
+        guard let data = try? Data(contentsOf: url) else {
             fatalError("Failed to load \(file) from bundle.")
         }
         
