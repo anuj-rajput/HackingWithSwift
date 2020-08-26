@@ -23,14 +23,21 @@ struct CustomText: View {
 
 struct ContentView: View {
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 10) {
-                ForEach(0 ..< 100) {
-                    CustomText("Item \($0)")
-                        .font(.title)
-                }
+//        ScrollView(.vertical) {
+//            VStack(spacing: 10) {
+//                ForEach(0 ..< 100) {
+//                    CustomText("Item \($0)")
+//                        .font(.title)
+//                }
+//            }
+//            .frame(maxWidth: .infinity)
+//        }
+        
+        List {
+            ForEach(0 ..< 100) {
+                CustomText("Item \($0)")
+                    .font(.title)
             }
-            .frame(maxWidth: .infinity)
         }
     }
 }
