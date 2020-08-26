@@ -35,27 +35,30 @@ struct MissionView: View {
                         .padding()
                     
                     ForEach(self.astronauts, id: \.role) { crewMember in
-                        HStack {
-                            ZStack(alignment: .bottomTrailing) {
-                                Image(crewMember.astronaut.id)
-                                    .resizable()
-                                    .frame(width: 83, height: 60)
-                                    .clipShape(Circle())
-                                    .overlay(Circle().stroke(Color.primary, lineWidth: 1))
-                            
-                                Text(crewMember.isCommander ? "🧑‍🚀🎖" : "")
+                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut)) {
+                            HStack {
+                                ZStack(alignment: .bottomTrailing) {
+                                    Image(crewMember.astronaut.id)
+                                        .resizable()
+                                        .frame(width: 83, height: 60)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.primary, lineWidth: 1))
+                                    
+                                    Text(crewMember.isCommander ? "🧑‍🚀🎖" : "")
+                                }
+                                
+                                VStack(alignment: .leading) {
+                                    Text(crewMember.astronaut.name)
+                                        .font(.headline)
+                                    Text(crewMember.role)
+                                        .foregroundColor(.secondary)
+                                }
+                                
+                                Spacer()
                             }
-
-                            VStack(alignment: .leading) {
-                                Text(crewMember.astronaut.name)
-                                    .font(.headline)
-                                Text(crewMember.role)
-                                    .foregroundColor(.secondary)
-                            }
-
-                            Spacer()
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .buttonStyle(PlainButtonStyle())
                     }
                     
                     Spacer(minLength: 25)
