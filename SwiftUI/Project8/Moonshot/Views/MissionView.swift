@@ -40,15 +40,11 @@ struct MissionView: View {
                     ForEach(self.astronauts, id: \.role) { crewMember in
                         NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut)) {
                             HStack {
-                                ZStack(alignment: .bottomTrailing) {
-                                    Image(crewMember.astronaut.id)
-                                        .resizable()
-                                        .frame(width: 83, height: 60)
-                                        .clipShape(Circle())
-                                        .overlay(Circle().stroke(Color.primary, lineWidth: 1))
-                                    
-                                    Text(crewMember.isCommander ? "🧑‍🚀🎖" : "")
-                                }
+                                Image(crewMember.astronaut.id)
+                                    .resizable()
+                                    .frame(width: 83, height: 60)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.primary, lineWidth: 1))
                                 
                                 VStack(alignment: .leading) {
                                     Text(crewMember.astronaut.name)
@@ -58,6 +54,9 @@ struct MissionView: View {
                                 }
                                 
                                 Spacer()
+                                
+                                Text(crewMember.isCommander ? "🧑‍🚀🎖" : "")
+                                    .font(.largeTitle)
                             }
                             .padding(.horizontal)
                         }
