@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AstronautView: View {
     let astronaut: Astronaut
-    //let missions: [Mission]
     
     var body: some View {
         GeometryReader { geometry in
@@ -20,6 +19,23 @@ struct AstronautView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: geometry.size.width)
+                    
+                    Text("Missions")
+                        .font(.headline)
+                    
+                    HStack {
+                        ForEach(self.astronaut.missions()) { mission in
+                            VStack {
+                                Image(mission.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 50, height: 50)
+                                
+                                Text(mission.displayName)
+                            }
+                        }
+                    }
+                    .frame(width: geometry.size.width, height: 120)
                     
                     Text(self.astronaut.description)
                         .padding()
@@ -33,7 +49,6 @@ struct AstronautView: View {
 
 struct AstronautView_Previews: PreviewProvider {
     static let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
-    //static let missions: [Mission] = Bundle.main.decode("missions.json")
     
     static var previews: some View {
         AstronautView(astronaut: astronauts.first!)
