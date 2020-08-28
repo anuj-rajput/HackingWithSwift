@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XFV-6h-KfA">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
             <objects>
                 <collectionViewController id="JZQ-80-qfp" customClass="ViewController" customModule="NamesToFaces" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="PO2-0Y-JPo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8jq-zU-N7j">
@@ -28,20 +28,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LE-To-HAz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8LE-To-HAz">
                                             <rect key="frame" x="10" y="10" width="120" height="120"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbx-6E-PHq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbx-6E-PHq">
                                             <rect key="frame" x="10" y="134" width="120" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="m0G-Gt-2pw"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Tbx-6E-PHq" firstAttribute="top" secondItem="8LE-To-HAz" secondAttribute="bottom" constant="4" id="AOd-Aw-WLC"/>
+                                    <constraint firstItem="Tbx-6E-PHq" firstAttribute="centerX" secondItem="eWN-71-QV2" secondAttribute="centerX" id="G5g-aj-qaG"/>
+                                    <constraint firstItem="Tbx-6E-PHq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8LE-To-HAz" secondAttribute="leading" id="GH0-Ta-za9"/>
+                                    <constraint firstItem="Tbx-6E-PHq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8LE-To-HAz" secondAttribute="trailing" id="Voc-nk-5LL"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Tbx-6E-PHq" secondAttribute="bottom" constant="-2" id="euJ-w1-FRU"/>
+                                    <constraint firstItem="8LE-To-HAz" firstAttribute="top" secondItem="eWN-71-QV2" secondAttribute="topMargin" constant="2" id="f7L-4K-jW8"/>
+                                    <constraint firstItem="8LE-To-HAz" firstAttribute="centerX" secondItem="Tbx-6E-PHq" secondAttribute="centerX" id="pKr-7N-SAh"/>
+                                    <constraint firstItem="Tbx-6E-PHq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eWN-71-QV2" secondAttribute="leadingMargin" id="u4A-Yt-dUv"/>
+                                    <constraint firstItem="8LE-To-HAz" firstAttribute="leading" secondItem="eWN-71-QV2" secondAttribute="leadingMargin" constant="2" id="wMC-9i-9s6"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="8LE-To-HAz" id="ra8-kS-tV0"/>
                                     <outlet property="name" destination="Tbx-6E-PHq" id="YOZ-cG-GDF"/>
@@ -65,7 +77,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XFV-6h-KfA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oo4-ob-Pge">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

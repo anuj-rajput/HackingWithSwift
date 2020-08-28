@@ -46,6 +46,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+        }
+        
         present(picker, animated: true)
     }
     
@@ -71,6 +76,15 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         return paths[0]
     }
     
+    func deleteFile(at path: String) {
+        guard path != "" else { return }
+        
+        let filePath = getDocumentsDirectory().appendingPathComponent(path).path
+        if FileManager.default.isDeletableFile(atPath: filePath) {
+            try? FileManager.default.removeItem(atPath: filePath)
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
         
@@ -92,6 +106,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         })
         
         optionAc.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            self?.deleteFile(at: self?.people[indexPath.item].image ?? "")
             self?.people.remove(at: indexPath.item)
             self?.collectionView.reloadData()
         })
