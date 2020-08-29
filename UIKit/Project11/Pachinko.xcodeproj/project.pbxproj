@@ -14,6 +14,7 @@
 		280195F424FA2CDF005EF524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280195F224FA2CDF005EF524 /* Main.storyboard */; };
 		280195F624FA2CE0005EF524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280195F524FA2CE0005EF524 /* Assets.xcassets */; };
 		280195F924FA2CE0005EF524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280195F724FA2CE0005EF524 /* LaunchScreen.storyboard */; };
+		2801960124FA60E3005EF524 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2801960024FA60E3005EF524 /* FireParticles.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		280195F524FA2CE0005EF524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		280195F824FA2CE0005EF524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		280195FA24FA2CE0005EF524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2801960024FA60E3005EF524 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				280195F024FA2CDF005EF524 /* GameViewController.swift */,
 				280195F224FA2CDF005EF524 /* Main.storyboard */,
 				280195F524FA2CE0005EF524 /* Assets.xcassets */,
+				2801960024FA60E3005EF524 /* FireParticles.sks */,
 				280195F724FA2CE0005EF524 /* LaunchScreen.storyboard */,
 				280195FA24FA2CE0005EF524 /* Info.plist */,
 			);
@@ -130,6 +133,7 @@
 			files = (
 				280195F424FA2CDF005EF524 /* Main.storyboard in Resources */,
 				280195EB24FA2CDF005EF524 /* GameScene.sks in Resources */,
+				2801960124FA60E3005EF524 /* FireParticles.sks in Resources */,
 				280195F624FA2CE0005EF524 /* Assets.xcassets in Resources */,
 				280195F924FA2CE0005EF524 /* LaunchScreen.storyboard in Resources */,
 			);
