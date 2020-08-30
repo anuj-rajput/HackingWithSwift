@@ -66,7 +66,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
-        guard location.y >= 700 else { return }
         
         let objects = nodes(at: location)
         
@@ -84,6 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
                 addChild(box)
             } else {
+                guard location.y >= 700 else { return }
                 let ball = SKSpriteNode(imageNamed: balls.randomElement()!)
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
