@@ -22,10 +22,11 @@ struct ContentView: View {
         }
     }
     
-    struct Arc: Shape {
+    struct Arc: InsettableShape {
         var startAngle: Angle
         var endAngle: Angle
         var clockwise: Bool
+        var insetAmount: CGFloat = 0
         
         func path(in rect: CGRect) -> Path {
             let rotationAdjustment = Angle.degrees(90)
@@ -33,9 +34,15 @@ struct ContentView: View {
             let modifiedEnd = endAngle - rotationAdjustment
             
             var path = Path()
-            path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2, startAngle: modifiedStart, endAngle: modifiedEnd, clockwise: !clockwise)
+            path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2 - insetAmount, startAngle: modifiedStart, endAngle: modifiedEnd, clockwise: !clockwise)
             
             return path
+        }
+        
+        func inset(by amount: CGFloat) -> some InsettableShape {
+            var arc = self
+            arc.insetAmount += amount
+            return arc
         }
     }
     
@@ -53,7 +60,7 @@ struct ContentView: View {
 //            .frame(width: 300, height: 300)
         
         Arc(startAngle: .init(degrees: 0), endAngle: .degrees(110), clockwise: true)
-            .stroke(Color.blue, lineWidth: 10)
+            .strokeBorder(Color.blue, lineWidth: 10)
             .frame(width: 300, height: 300)
     }
 }
