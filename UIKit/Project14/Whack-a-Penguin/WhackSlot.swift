@@ -52,6 +52,8 @@ class WhackSlot: SKNode {
             charNode.name = "charEnemy"
         }
         
+        showParticles(for: "popup")
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + (hideTime * 3.5)) { [weak self] in
             self?.hide()
         }
@@ -62,6 +64,8 @@ class WhackSlot: SKNode {
         
         charNode.run(SKAction.moveBy(x: 0, y: -80, duration: 0.05))
         isVisible = false
+        
+        showParticles(for: "popup")
     }
     
     func hit() {
@@ -72,5 +76,14 @@ class WhackSlot: SKNode {
         let notVisible = SKAction.run { [weak self] in self?.isVisible = false }
         let sequence = SKAction.sequence([delay, hide, notVisible])
         charNode.run(sequence)
+        
+        showParticles(for: "smoke")
+    }
+    
+    func showParticles(for name: String) {
+        if let particles = SKEmitterNode(fileNamed: name) {
+            charNode.position = charNode.position
+            addChild(particles)
+        }
     }
 }

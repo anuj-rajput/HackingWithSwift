@@ -18,6 +18,8 @@
 		2862F595250A29370060B39C /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2862F593250A29370060B39C /* whack.caf */; };
 		2862F597250A2AE50060B39C /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862F596250A2AE50060B39C /* WhackSlot.swift */; };
 		2862F599250A45990060B39C /* GameOver.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2862F598250A45990060B39C /* GameOver.caf */; };
+		2862F59B250A48040060B39C /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2862F59A250A48040060B39C /* smoke.sks */; };
+		2862F59D250A482E0060B39C /* popup.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2862F59C250A482E0060B39C /* popup.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		2862F593250A29370060B39C /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		2862F596250A2AE50060B39C /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 		2862F598250A45990060B39C /* GameOver.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOver.caf; sourceTree = "<group>"; };
+		2862F59A250A48040060B39C /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
+		2862F59C250A482E0060B39C /* popup.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = popup.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				2862F593250A29370060B39C /* whack.caf */,
 				2862F592250A29370060B39C /* whackBad.caf */,
 				2862F598250A45990060B39C /* GameOver.caf */,
+				2862F59A250A48040060B39C /* smoke.sks */,
+				2862F59C250A482E0060B39C /* popup.sks */,
 			);
 			path = "Whack-a-Penguin";
 			sourceTree = "<group>";
@@ -145,8 +151,10 @@
 				2862F57D250A280C0060B39C /* GameScene.sks in Resources */,
 				2862F588250A280D0060B39C /* Assets.xcassets in Resources */,
 				2862F58B250A280D0060B39C /* LaunchScreen.storyboard in Resources */,
+				2862F59D250A482E0060B39C /* popup.sks in Resources */,
 				2862F595250A29370060B39C /* whack.caf in Resources */,
 				2862F599250A45990060B39C /* GameOver.caf in Resources */,
+				2862F59B250A48040060B39C /* smoke.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
