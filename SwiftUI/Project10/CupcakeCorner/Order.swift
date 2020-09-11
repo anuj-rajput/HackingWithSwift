@@ -40,6 +40,10 @@ class Order: ObservableObject, Codable {
             return false
         }
         
+        if streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+            return false
+        }
+        
         return true
     }
     
