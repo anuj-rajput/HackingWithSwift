@@ -13,9 +13,9 @@ struct DetailView: View {
     @Environment (\.managedObjectContext) var moc
     @Environment (\.presentationMode) var presentationMode
     @State private var showingDeleteAlert = false
-    
-    let book: Book
 
+    var book: Book
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -45,6 +45,8 @@ struct DetailView: View {
                     .font(.largeTitle)
                 
                 Spacer()
+                
+                Text("Added: \(self.date())")
             }
         }
         .navigationBarTitle(Text(book.title ?? "Unknown Book"), displayMode: .inline)
@@ -66,6 +68,16 @@ struct DetailView: View {
         
         try? self.moc.save()
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    func date() -> String {
+        var date: String = ""
+        if let dt = book.date {
+            let df = DateFormatter()
+            df.dateStyle = .short
+            date = df.string(from: dt)
+        }
+        return date
     }
 }
 
