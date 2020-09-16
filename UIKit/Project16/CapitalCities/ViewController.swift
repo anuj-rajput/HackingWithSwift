@@ -22,6 +22,15 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let washington = Capital(title: "Washington", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself.")
         
         mapView.addAnnotations([newDelhi, oslo, paris, rome, washington])
+        
+        let ac = UIAlertController(title: "Map View", message: "How do you like your map to be viewed?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Standard", style: .default, handler: { action in
+            self.mapView.mapType = .standard
+        }))
+        ac.addAction(UIAlertAction(title: "Satellite", style: .default, handler: { action in
+            self.mapView.mapType = .satellite
+        }))
+        present(ac, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
