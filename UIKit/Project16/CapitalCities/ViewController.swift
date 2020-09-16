@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import SafariServices
 import UIKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
@@ -57,11 +58,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let capital = view.annotation as? Capital else { return }
         
-        let placeName = capital.title
-        let placeInfo = capital.info
+//        let placeName = capital.title
+//        let placeInfo = capital.info
+        let url = capital.url
         
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+//        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
+//        ac.addAction(UIAlertAction(title: "OK", style: .default))
+//        present(ac, animated: true)
+        present(SFSafariViewController(url: url), animated: true)
     }
 }
