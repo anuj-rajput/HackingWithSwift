@@ -26,6 +26,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         context = CIContext()
         currentFilter = CIFilter(name: "CISepiaTone")
+        imageView.alpha = 0
     }
     
     @objc func importPicture() {
@@ -86,6 +87,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
             let processedImage = UIImage(cgImage: cgimg)
             self.imageView.image = processedImage
+        }
+        
+        if imageView.alpha == 0 {
+            UIView.animate(withDuration: 2, delay: 0, options: .curveEaseIn, animations: {
+                self.imageView.alpha = 1
+            }, completion: nil)
         }
     }
 
