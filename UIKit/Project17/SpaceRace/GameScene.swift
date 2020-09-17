@@ -16,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var possibleEnemies = ["ball", "hammer", "tv"]
     var gameTimer: Timer?
     var isGameOver = false
+    var enemies = 0
     
     var score = 0 {
         didSet {
@@ -48,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self // tell us when contacts happen
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -77,6 +78,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularVelocity = 5 // gives a spin
         sprite.physicsBody?.linearDamping = 0 // how things slow down over time, never in this case
         sprite.physicsBody?.angularDamping = 0 // this never stops spinning
+        
+        enemies += 1
+        if enemies % 20 == 0 {
+            let interval = gameTimer?.timeInterval
+            gameTimer?.invalidate()
+            gameTimer = Timer.scheduledTimer(timeInterval: interval ?? 1.0 - 0.1, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
