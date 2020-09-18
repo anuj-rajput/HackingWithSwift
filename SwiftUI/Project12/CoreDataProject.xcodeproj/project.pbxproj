@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		284D57D12514A0650039DDCC /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284D57CF2514A0650039DDCC /* Movie+CoreDataClass.swift */; };
+		284D57D22514A0650039DDCC /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284D57D02514A0650039DDCC /* Movie+CoreDataProperties.swift */; };
 		285E3C5B25148E17006B7072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E3C5A25148E17006B7072 /* AppDelegate.swift */; };
 		285E3C5D25148E17006B7072 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E3C5C25148E17006B7072 /* SceneDelegate.swift */; };
 		285E3C5F25148E17006B7072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E3C5E25148E17006B7072 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		284D57CF2514A0650039DDCC /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		284D57D02514A0650039DDCC /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		285E3C5725148E17006B7072 /* CoreDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285E3C5A25148E17006B7072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285E3C5C25148E17006B7072 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				285E3C6825148E18006B7072 /* LaunchScreen.storyboard */,
 				285E3C6B25148E18006B7072 /* Info.plist */,
 				285E3C6325148E17006B7072 /* CoreDataProject.xcdatamodeld */,
+				284D57CF2514A0650039DDCC /* Movie+CoreDataClass.swift */,
+				284D57D02514A0650039DDCC /* Movie+CoreDataProperties.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 				285E3C5F25148E17006B7072 /* ViewController.swift in Sources */,
 				285E3C5B25148E17006B7072 /* AppDelegate.swift in Sources */,
 				285E3C6525148E17006B7072 /* CoreDataProject.xcdatamodeld in Sources */,
+				284D57D12514A0650039DDCC /* Movie+CoreDataClass.swift in Sources */,
+				284D57D22514A0650039DDCC /* Movie+CoreDataProperties.swift in Sources */,
 				285E3C5D25148E17006B7072 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
