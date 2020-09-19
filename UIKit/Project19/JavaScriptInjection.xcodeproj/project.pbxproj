@@ -17,6 +17,7 @@
 		285746D32516707D0044FCD7 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285746D22516707D0044FCD7 /* ActionViewController.swift */; };
 		285746D62516707D0044FCD7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285746D42516707D0044FCD7 /* MainInterface.storyboard */; };
 		285746DA2516707D0044FCD7 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 285746CE2516707D0044FCD7 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		285746E2251672C50044FCD7 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 285746E1251672C50044FCD7 /* Action.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		285746D22516707D0044FCD7 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		285746D52516707D0044FCD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		285746D72516707D0044FCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		285746E1251672C50044FCD7 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				285746D22516707D0044FCD7 /* ActionViewController.swift */,
 				285746D42516707D0044FCD7 /* MainInterface.storyboard */,
 				285746D72516707D0044FCD7 /* Info.plist */,
+				285746E1251672C50044FCD7 /* Action.js */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285746E2251672C50044FCD7 /* Action.js in Resources */,
 				285746D12516707D0044FCD7 /* Media.xcassets in Resources */,
 				285746D62516707D0044FCD7 /* MainInterface.storyboard in Resources */,
 			);
