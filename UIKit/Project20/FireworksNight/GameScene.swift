@@ -23,6 +23,14 @@ class GameScene: SKScene {
         }
     }
     
+    var launchCount = 0 {
+        didSet {
+            if launchCount > 10 {
+                gameTimer?.invalidate()
+            }
+        }
+    }
+    
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: 512, y: 384)
@@ -72,6 +80,7 @@ class GameScene: SKScene {
     }
     
     @objc func launchFireworks() {
+        launchCount += 1
         let movementAmount: CGFloat = 1800
         
         switch Int.random(in: 0...3) {
