@@ -29,7 +29,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         }
     }
     
-    @objc func scheduleLocal() {
+    @objc func scheduleLocal(after timeInterval: TimeInterval) {
         registerCategories()
         
         let center = UNUserNotificationCenter.current()
@@ -57,7 +57,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         center.delegate = self
         
         let show = UNNotificationAction(identifier: "show", title: "Tell me more...", options: .foreground)
-        let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [], options: [])
+        let later = UNNotificationAction(identifier: "later", title: "Reminde me later...", options: .destructive)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [show, later], intentIdentifiers: [], options: [])
         
         center.setNotificationCategories([category])
     }
@@ -81,6 +82,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
                 ac.addAction(UIAlertAction(title: "Okay", style: .default))
                 present(ac, animated: true)
                 print("Show more information...")
+                
+            case "later":
+                scheduleLocal(after: 10)
                 
             default:
                 break
