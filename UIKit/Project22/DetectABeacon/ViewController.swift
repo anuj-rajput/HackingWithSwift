@@ -34,11 +34,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func startScanning() {
-        let uuid = UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5")!
-        let beaconRegion = CLBeaconRegion(uuid: uuid, major: 123, minor: 456, identifier: "MyBeacon")
-        
-        locationManager?.startMonitoring(for: beaconRegion)
-        locationManager?.startRangingBeacons(in: beaconRegion)
+        ["2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6",
+         "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0",
+         "74278BDA-B644-4520-8F0C-720EAF059935",
+         "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5",
+         "B9407F30-F5F8-466E-AFF9-25556B57FE6D"]
+            .map { (str) -> UUID in
+                UUID(uuidString: str)!
+            }
+            .forEach { uuid in
+                // FIXME: This is not working because of multiple beacons
+                locationManager?.startRangingBeacons(in: .init(uuid: uuid, major: 123, minor: 456, identifier: "Beacon"))
+            }
     }
     
     func update(distance: CLProximity) {
